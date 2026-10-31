@@ -3,7 +3,30 @@
 A simple, fully local AI agent that analyzes e-commerce sales data and
 generates clear, data-backed insights and recommendations.
 
-**No API keys. No external services. Pure Python standard library.**
+**No API keys. No external services. Pure Python.**
+
+---
+
+## Quick Start
+
+### Option A — Web Dashboard (Streamlit) ⭐ Recommended for demo
+
+```bash
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+Open **http://localhost:8501** in your browser.
+
+> **Windows tip:** If `streamlit` is not found on PATH, use `python -m streamlit run app.py` instead.
+
+### Option B — Terminal (no install needed)
+
+```bash
+python main.py
+```
+
+---
 
 ## Workflow
 
@@ -23,43 +46,39 @@ Recommendations  (rule-based actionable suggestions)
 Interactive Q&A  (keyword-based questions about the dataset)
 ```
 
+---
+
 ## Project Structure
 
 ```
 shopinsight_ai/
 ├── data/
-│   └── sales_data.csv      # ShopInsight sales dataset (448 orders, Jan-Mar 2026)
+│   └── sales_data.csv      # ShopInsight dataset (447 orders, Jan–Mar 2026)
 ├── agent.py                # Data loading, analysis engine, Q&A agent
-├── main.py                 # Entry point (run this)
-├── requirements.txt        # No dependencies — standard library only
+├── app.py                  # Streamlit web dashboard  ← GUI entry point
+├── main.py                 # Terminal entry point
+├── requirements.txt        # streamlit only
 └── README.md
 ```
 
-## Quick Start
+---
 
-```bash
-# Python 3.9+ required — no pip install needed
-python main.py
-```
+## Dashboard Sections
 
-That's it.
+| # | Section | What it shows |
+|---|---|---|
+| 1 | Sales Overview | Key metrics as cards (revenue, orders, units, avg order) |
+| 2 | Top Product & Category Performance | Bar charts + ranked tables |
+| 3 | Low Sales Performance | Table of products in the bottom third by volume |
+| 4 | Key Insights | Rule-based factual observations from the data |
+| 5 | Simple Recommendations | Rule-based actionable suggestions |
+| 6 | Interactive Q&A | Ask any question; answered from the dataset |
 
-## What the Output Looks Like
-
-```
-Section 1 — Sales Overview         (period, totals, products, categories, avg order)
-Section 2 — Top Product Performance (top 5 by units and by revenue, category breakdown)
-Section 3 — Low Sales Performance   (products in the bottom third by volume)
-Section 4 — Key Insights            (rule-based factual observations from the data)
-Section 5 — Simple Recommendations  (rule-based actionable suggestions)
-             |
-             v
-Interactive Q&A loop
-```
+---
 
 ## Dataset
 
-`data/sales_data.csv` — 448 orders, January to March 2026.
+`data/sales_data.csv` — 447 orders, January to March 2026.
 
 | Column | Description |
 |---|---|
@@ -75,6 +94,8 @@ Interactive Q&A loop
 Sneakers, Hoodie, T-Shirt, Backpack, Water Bottle
 
 **Categories:** Electronics, Fashion, Lifestyle
+
+---
 
 ## Sample Q&A Questions
 
